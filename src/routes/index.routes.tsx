@@ -1,6 +1,6 @@
 import React from "react";
-import { Home } from "../screens/Home";
+import { CarDetails } from "../screens/CarDetails";
 
 export function Routes() {
-  return <Home />;
+  return <CarDetails />;
 }

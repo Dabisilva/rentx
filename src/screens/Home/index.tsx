@@ -3,7 +3,7 @@ import { StatusBar } from "expo-status-bar";
 
 import { Header } from "../../components/Header";
 
-import { Container, Content, Title } from "./styles";
+import { Container, CarList } from "./styles";
 import { Car } from "../../components/Car";
 
 export function Home() {
@@ -21,7 +21,11 @@ export function Home() {
     <Container>
       <StatusBar animated style="light" />
       <Header />
-      <Car data={data} />
+      <CarList
+        data={[1, 2, 3]}
+        keyExtractor={(item) => String(item)}
+        renderItem={({ item }) => <Car data={data} />}
+      />
     </Container>
   );
 }
