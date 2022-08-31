@@ -1,8 +1,8 @@
-import React from "react";
-import { StatusBar } from "expo-status-bar";
+import React, { useEffect } from "react";
 import { ThemeProvider } from "styled-components/native";
+import * as SplashScreen from "expo-splash-screen";
+import { useFonts } from "expo-font";
 import {
-  useFonts,
   Archivo_400Regular,
   Archivo_500Medium,
   Archivo_600SemiBold,
@@ -22,8 +22,19 @@ export default function App() {
     Inter_500Medium,
   });
 
+  async function prepare() {
+    if (!fontsLoaded) {
+      await SplashScreen.preventAutoHideAsync();
+    } else {
+      await SplashScreen.hideAsync();
+    }
+  }
+  useEffect(() => {
+    prepare();
+  }, [fontsLoaded]);
+
   if (!fontsLoaded) {
-    return <AppLoading />;
+    return null;
   }
 
   return (
