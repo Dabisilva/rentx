@@ -8,7 +8,6 @@ import {
   Archivo_600SemiBold,
 } from "@expo-google-fonts/archivo";
 import { Inter_400Regular, Inter_500Medium } from "@expo-google-fonts/inter";
-import AppLoading from "expo-app-loading";
 
 import { Routes } from "./src/routes/index.routes";
 import { theme } from "./src/styles/theme";

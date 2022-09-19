@@ -1,6 +1,6 @@
 import React from "react";
-import { CarDetails } from "../screens/CarDetails";
+import { SchedullingDetails } from "../screens/SchedullingDetails";
 
 export function Routes() {
-  return <CarDetails />;
+  return <SchedullingDetails />;
 }
