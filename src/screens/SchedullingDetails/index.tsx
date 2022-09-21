@@ -3,6 +3,8 @@ import React from "react";
 import { Feather } from "@expo/vector-icons";
 import { RFValue } from "react-native-responsive-fontsize";
 import { useTheme } from "styled-components/native";
+import { useNavigation } from "@react-navigation/native";
+import { StatusBar } from "expo-status-bar";
 
 import { Accessory } from "../../components/Accessory";
 import { BackButton } from "../../components/BackButton";
@@ -43,11 +45,17 @@ import {
 } from "./styles";
 
 export function SchedullingDetails() {
+  const navigation = useNavigation();
   const theme = useTheme();
+
+  function handleGoToSchedulleComplete() {
+    navigation.navigate("SchedullingComplete");
+  }
   return (
     <Container>
+      <StatusBar style="dark" />
       <Header>
-        <BackButton onPress={() => {}} />
+        <BackButton onPress={() => navigation.goBack()} />
       </Header>
       <ImagesContainer>
         <ImageSlider
@@ -110,7 +118,11 @@ export function SchedullingDetails() {
       </Content>
 
       <Footer>
-        <Button title="Confirmar" />
+        <Button
+          title="Alugar Carro"
+          color={theme.colors.success}
+          onPress={() => handleGoToSchedulleComplete()}
+        />
       </Footer>
     </Container>
   );

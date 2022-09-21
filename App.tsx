@@ -1,3 +1,5 @@
+import "react-native-gesture-handler";
+
 import React, { useEffect } from "react";
 import { ThemeProvider } from "styled-components/native";
 import * as SplashScreen from "expo-splash-screen";

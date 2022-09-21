@@ -1,7 +1,10 @@
 import React from "react";
+import { TouchableOpacityProps } from "react-native";
+import { CarsRequest } from "../../@types/interfaces";
 
 import GasolineSvg from "../../assets/gasoline.svg";
 import { theme } from "../../styles/theme";
+import { getAccessoryIcon } from "../../utils/getAccessoryIcon";
 import {
   Container,
   InfoContainer,
@@ -15,24 +18,15 @@ import {
   Type,
 } from "./styles";
 
-interface CarData {
-  brand: string;
-  name: string;
-  rent: {
-    period: string;
-    price: number;
-    type: string;
-  };
-  thumb: string;
+interface Props extends TouchableOpacityProps {
+  data: CarsRequest;
 }
 
-interface Props {
-  data: CarData;
-}
+export function Car({ data, ...rest }: Props) {
+  const MotorIcon = getAccessoryIcon(data.fuel_type);
 
-export function Car({ data }: Props) {
   return (
-    <Container>
+    <Container {...rest}>
       <InfoContainer>
         <Brand>{data.brand}</Brand>
         <Name>{data.name}</Name>
@@ -43,18 +37,14 @@ export function Car({ data }: Props) {
             <Price>{`R$ ${data.rent.price}`}</Price>
           </Rent>
           <Type>
-            {data.rent.type === "gasoline" ? (
-              <GasolineSvg color={theme.colors.text_detail} />
-            ) : (
-              ""
-            )}
+            <MotorIcon color={theme.colors.text_detail} />
           </Type>
         </About>
       </InfoContainer>
       <CarImage
         resizeMode="contain"
         source={{
-          uri: data.thumb,
+          uri: data.thumbnail,
         }}
       />
     </Container>
