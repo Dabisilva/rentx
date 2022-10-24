@@ -11,8 +11,14 @@ type StackRoutesList = {
   CarDetails: {
     carDetails: CarsRequest;
   };
-  Schedulle: undefined;
-  SchedullingDetails: undefined;
+  Schedulle: {
+    carDetails: CarsRequest;
+    dates: string;
+  };
+  SchedullingDetails: {
+    carDetails: CarsRequest;
+    dates: string[];
+  };
   SchedullingComplete: undefined;
 };
 

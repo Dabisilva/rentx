@@ -7,12 +7,7 @@ import { BackButton } from "../../components/BackButton";
 import { ImageSlider } from "../../components/ImageSlider";
 import { Button } from "../../components/Button";
 
-import speedSvg from "../../assets/speed.svg";
-import accelerateSvg from "../../assets/acceleration.svg";
-import forceSvg from "../../assets/force.svg";
-import gasolineSvg from "../../assets/gasoline.svg";
-import peapleSvg from "../../assets/people.svg";
-import exchangeSvg from "../../assets/exchange.svg";
+import { getAccessoryIcon } from "../../utils/getAccessoryIcon";
 
 import { CarsRequest } from "../../@types/interfaces";
 
@@ -32,7 +27,6 @@ import {
   Accessories,
   Footer,
 } from "./styles";
-import { getAccessoryIcon } from "../../utils/getAccessoryIcon";
 
 interface Props {
   carDetails: CarsRequest;
@@ -44,7 +38,7 @@ export function CarDetails() {
   const navigation = useNavigation();
 
   function handleGoToSchedulle() {
-    navigation.navigate("Schedulle");
+    navigation.navigate("Schedulle", { carDetails });
   }
 
   return (

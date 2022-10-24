@@ -9,8 +9,13 @@ declare global {
       CarDetails: {
         carDetails: CarsRequest;
       };
-      Schedulle: undefined;
-      SchedullingDetails: undefined;
+      Schedulle: {
+        carDetails: CarsRequest;
+      };
+      SchedullingDetails: {
+        carDetails: CarsRequest;
+        dates: string[];
+      };
       SchedullingComplete: undefined;
     }
   }
