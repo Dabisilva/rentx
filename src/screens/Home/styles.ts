@@ -21,3 +21,21 @@ export const CarList = styled(
   },
   showsVerticalScrollIndicator: false,
 })``;
+
+export const MyCarsButton = styled.TouchableOpacity.attrs({
+  activeOpacity: 0.7,
+})`
+  position: absolute;
+  bottom: 13px;
+  right: 22px;
+
+  align-items: center;
+  justify-content: center;
+
+  background-color: ${({ theme }) => theme.colors.main};
+
+  height: 60px;
+  width: 60px;
+
+  border-radius: 30px;
+`;

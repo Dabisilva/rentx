@@ -5,6 +5,7 @@ import { Schedulle } from "../screens/Schedulle";
 import { SchedullingComplete } from "../screens/SchedullingComplete";
 import { SchedullingDetails } from "../screens/SchedullingDetails";
 import { CarsRequest } from "../@types/interfaces";
+import { MyCars } from "../screens/MyCars";
 
 type StackRoutesList = {
   Home: undefined;
@@ -20,6 +21,7 @@ type StackRoutesList = {
     dates: string[];
   };
   SchedullingComplete: undefined;
+  MyCars: undefined;
 };
 
 const Stack = createNativeStackNavigator<StackRoutesList>();
@@ -41,6 +43,7 @@ export function StackRoutes() {
         name="SchedullingComplete"
         component={SchedullingComplete}
       />
+      <Stack.Screen name="MyCars" component={MyCars} />
     </Stack.Navigator>
   );
 }
